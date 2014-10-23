@@ -1,14 +1,13 @@
 {
   "name": "spanx",
   "version": "0.1.0",
-  "description": "SpanX is a jQuery plugin that will reduce the physical size of your website so it can fit in an iPad Air.",
+  "description": "SpanX is a script that will reduce the physical size of your website so it can fit in an iPad Air.",
   "main": "spanX.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "spanX",
-    "jquery",
     "ipad",
     "thin"
   ],
