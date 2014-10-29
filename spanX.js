@@ -78,10 +78,11 @@
         var options = this.getOptions(),
             selectors = this.getSelectors(),
             output = '',
-            zIndex = 1;
+            lastIndex = selectors.length,
+            scale = lastIndex / options.maxDepth;
 
         // Generate the css that will scale back the z-indices
-        for (var i = 0; i < selectors.length; i++) {
+        for (var i = 0; i < lastIndex; i++) {
 
             if (!selectors[i]) {
                 continue;
@@ -89,13 +90,7 @@
 
             var selectorString = selectors[i].join(', ');
 
-            // Ensure that the z-index doesn't go above the max depth so it can fit in the device
-            if (zIndex > options.maxDepth) {
-                zIndex = options.maxDepth;
-            }
-
-            output += selectorString + ' { z-index: ' + zIndex + ' !important } ';
-            zIndex++;
+            output += selectorString + ' { z-index: ' + Math.ceil(i / scale) + ' !important } ';
         }
 
         // Create a style element with the above styles
